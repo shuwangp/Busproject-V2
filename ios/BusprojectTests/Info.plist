@@ -20,5 +20,9 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>แอปต้องการใช้ GPS เพื่อคำนวณตำแหน่งของคุณ</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>แอปต้องการใช้ GPS เพื่อคำนวณตำแหน่งของคุณแม้อยู่ในพื้นหลัง</string>
 </dict>
 </plist>
