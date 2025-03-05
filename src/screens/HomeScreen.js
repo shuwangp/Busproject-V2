@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
         onPress={handleNavigateToMapbox}
         disabled={isLoading} // ปิดการใช้งานปุ่มขณะโหลด
       >
-        <Image source={require("../../assets/bus.png")} style={styles.icon} />
+        <Image source={require("../../assets/bus.png")} style={styles.busIcon} />
         <Text style={styles.buttonText}>ติดตามรถโดยสาร</Text>
       </TouchableOpacity>
 
@@ -30,7 +30,7 @@ export default function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate("StatisticsScreen")}
         disabled={isLoading} // ปิดการใช้งานปุ่มขณะโหลด
       >
-        <Image source={require("../../assets/bus.png")} style={styles.icon} />
+        <Image source={require("../../assets/data.png")} style={styles.dataIcon} />
         <Text style={styles.buttonText}>ดูตารางสถิติ</Text>
       </TouchableOpacity>
 
@@ -38,7 +38,7 @@ export default function HomeScreen({ navigation }) {
       {isLoading && (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#5E17EB" />
-          <Text style={styles.loadingText}>กำลังโหลด...</Text>
+          <Text style={styles.loadingText}></Text>
         </View>
       )}
     </View>
@@ -56,8 +56,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 80, // เว้นระยะห่างระหว่างปุ่มทั้งสองให้เท่ากัน
   },
-  icon: {
-    width: 400, // ปรับขนาดไอคอนให้เท่ากัน
+  busIcon: {
+    width: 400, // ปรับขนาดไอคอนรถให้ใหญ่ขึ้น
+    height: 150,
+    resizeMode: "contain",
+    tintColor: "#5E17EB",
+  },
+  dataIcon: {
+    width: 80, // ปรับขนาดไอคอนข้อมูลให้เล็กลง
     height: 200,
     resizeMode: "contain",
     tintColor: "#5E17EB",
@@ -66,8 +72,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#000",
     fontWeight: "bold",
-    marginTop: 1,
-    paddingLeft: 27, // ขยับตัวอักษรไปทางขวา 20px
+    marginTop: 5,
+    paddingLeft: 32, // ขยับตัวอักษรไปทางขวา
   },
   loadingContainer: {
     ...StyleSheet.absoluteFillObject,

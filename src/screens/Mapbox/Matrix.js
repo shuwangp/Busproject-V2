@@ -1,4 +1,4 @@
-export const fetchMatrixData = async (userLocation, busLocation, setDistanceToBus, tokenmapbox) => {
+export const fetchMatrixData = async (userLocation, busLocation, setDistanceToBus,setETA,tokenmapbox) => {
     if (!userLocation || !busLocation) return;
 
     const coordinates = `${userLocation.longitude},${userLocation.latitude};${busLocation.longitude},${busLocation.latitude}`;
@@ -9,9 +9,15 @@ export const fetchMatrixData = async (userLocation, busLocation, setDistanceToBu
         const data = await response.json();
 
         if (data.distances && data.distances[0] && data.distances[0][1]) {
-            const distance = data.distances[0][1]; // 📌 ดึงค่าระยะทาง (เมตร)
+            const distance = data.distances[0][1]; 
             setDistanceToBus(distance);
             console.log(` ระยะห่างจากรถเมล์: ${distance} เมตร`);
+        }
+        if (data.durations && data.durations[0] && data.durations[0][1]) {
+            const durationInSeconds = data.durations[0][1]; // เวลาในหน่วยวินาที
+            const durationInMinutes = Math.ceil(durationInSeconds / 60); // แปลงเป็นนาที
+            setETA(durationInMinutes);
+            console.log(`เวลาที่รถเมล์จะมาถึง: ${durationInMinutes} นาที`);
         }
     } catch (error) {
         console.error("Error fetching Matrix data:", error);
@@ -19,7 +25,7 @@ export const fetchMatrixData = async (userLocation, busLocation, setDistanceToBu
 };
 
 
-
+    
 
 
 
