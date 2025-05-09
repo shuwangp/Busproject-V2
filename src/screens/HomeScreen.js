@@ -5,11 +5,11 @@ export default function HomeScreen({ navigation }) {
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleNavigateToMapbox = () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     setTimeout(() => {
-      setIsLoading(false); 
-      navigation.navigate("MapboxScreen"); 
-    }, 2000); 
+      setIsLoading(false);
+      navigation.navigate("MapboxScreen");
+    }, 2000);
   };
 
   return (
@@ -18,7 +18,7 @@ export default function HomeScreen({ navigation }) {
       <TouchableOpacity
         style={styles.button}
         onPress={handleNavigateToMapbox}
-        disabled={isLoading} // ปิดการใช้งานปุ่มขณะโหลด
+        disabled={isLoading}
       >
         <Image source={require("../../assets/bus.png")} style={styles.busIcon} />
         <Text style={styles.buttonText}>ติดตามรถโดยสาร</Text>
@@ -27,8 +27,8 @@ export default function HomeScreen({ navigation }) {
       {/* ปุ่มดูตารางสถิติ */}
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate("StatisticsScreen")}
-        disabled={isLoading} // ปิดการใช้งานปุ่มขณะโหลด
+        onPress={() => navigation.navigate("BusSummary")}
+        disabled={isLoading}
       >
         <Image source={require("../../assets/data.png")} style={styles.dataIcon} />
         <Text style={styles.buttonText}>ดูตารางสถิติ</Text>
@@ -54,16 +54,16 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    marginVertical: 80, // เว้นระยะห่างระหว่างปุ่มทั้งสองให้เท่ากัน
+    marginVertical: 40,
   },
   busIcon: {
-    width: 400, // ปรับขนาดไอคอนรถให้ใหญ่ขึ้น
+    width: 400,
     height: 150,
     resizeMode: "contain",
     tintColor: "#5E17EB",
   },
   dataIcon: {
-    width: 80, // ปรับขนาดไอคอนข้อมูลให้เล็กลง
+    width: 80,
     height: 200,
     resizeMode: "contain",
     tintColor: "#5E17EB",
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     color: "#000",
     fontWeight: "bold",
     marginTop: 5,
-    paddingLeft: 32, // ขยับตัวอักษรไปทางขวา
+    paddingLeft: 32,
   },
   loadingContainer: {
     ...StyleSheet.absoluteFillObject,

@@ -14,8 +14,9 @@ const firebaseConfig = {
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const db = getDatabase(app); 
+const firestoreDb = getFirestore(app); // ✅ เพิ่ม Firestore instance
 
 
-export { app, db }; 
+export { app, db,firestoreDb  }; 
 
 
