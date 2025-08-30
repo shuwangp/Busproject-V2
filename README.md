@@ -17,7 +17,6 @@ Busproject-V2 เป็นแอปพลิเคชันสำหรับน
 - **React Native:** สำหรับพัฒนาแอปพลิเคชันบนมือถือ (Android/iOS)
 - **Firebase Realtime Database & Firestore:** ใช้เก็บและเรียกดูข้อมูลตำแหน่งรถบัส, จำนวนคนบนรถ, และจุดจอดรถ
 - **Mapbox:** ใช้สำหรับแสดงแผนที่และเส้นทางเดินรถ
-- **Geolocation Service:** สำหรับติดตามตำแหน่งผู้ใช้
 - **React Native Chart Kit:** ใช้แสดง Pie Chart หรือกราฟข้อมูลต่าง ๆ ในแอป
 
 ## หมายเหตุ
